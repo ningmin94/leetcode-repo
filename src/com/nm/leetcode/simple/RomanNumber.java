@@ -34,65 +34,68 @@ public class RomanNumber {
           int flag = 1;
           String[] subArr = s.split("");
           String first = subArr[0];
-          if("M".equals(first)){
-              result+=1000;
-          }
-          else if("D".equals(first)){
-              result+=500;
-          }
-          else if("C".equals(first)){
-              if(subArr.length == 1){
-                  result+=100;
-              }else{
-                  String next = subArr[1];
-                  if("M".equals(next)){
-                      result+=900;
-                      flag++;
-                  }else if("D".equals(next)){
-                      result+=400;
-                      flag++;
+          switch (first){
+              case "M":
+                  result+=1000;
+                  break;
+              case "D":
+                  result+=500;
+                  break;
+              case "C":
+                  if(subArr.length == 1){
+                    result+=100;
                   }else{
-                      result+=100;
+                      String next = subArr[1];
+                      if("M".equals(next)){
+                          result+=900;
+                          flag++;
+                      }else if("D".equals(next)){
+                          result+=400;
+                          flag++;
+                      }else{
+                          result+=100;
+                      }
                   }
-              }
-          }
-          else if("L".equals(first)){
-              result+=50;
-          }
-          else if("X".equals(first)){
-              if(subArr.length == 1){
-                  result+=10;
-              }else {
-                  String next = subArr[1];
-                  if ("C".equals(next)) {
-                      result += 90;
-                      flag++;
-                  } else if ("L".equals(next)) {
-                      result += 40;
-                      flag++;
-                  } else {
-                      result += 10;
+                  break;
+              case "L":
+                  result+=50;
+                  break;
+              case "X":
+                  if(subArr.length == 1){
+                      result+=10;
+                  }else {
+                      String next = subArr[1];
+                      if ("C".equals(next)) {
+                          result += 90;
+                          flag++;
+                      } else if ("L".equals(next)) {
+                          result += 40;
+                          flag++;
+                      } else {
+                          result += 10;
+                      }
                   }
-              }
-          }
-          else if("V".equals(first)){
-              result+=5;
-          }
-          else if("I".equals(first)){
-              if(subArr.length == 1){
-                  result+=1;
-              }else{
-                  String next = subArr[1];
-                  if("X".equals(next)){
-                      result+=9;
-                      flag++;
-                  }else if("V".equals(next)){
-                      result+=4;
-                      flag++;
-                  }else{
+                  break;
+              case "V":
+                  result+=5;
+                  break;
+              case "I":
+                  if(subArr.length == 1){
                       result+=1;
+                  }else{
+                      String next = subArr[1];
+                      if("X".equals(next)){
+                          result+=9;
+                          flag++;
+                      }else if("V".equals(next)){
+                          result+=4;
+                          flag++;
+                      }else{
+                          result+=1;
+                      }
                   }
-              }
+                  break;
+              default:break;
           }
           return calc(s.substring(flag), result);
         }
