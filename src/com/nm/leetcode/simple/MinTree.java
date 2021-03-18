@@ -19,7 +19,17 @@ public class MinTree {
 //            /   /
 //            -10  5
 
+    //1. 取中间的数字为根节点
+    //2. 中间左侧为左树，右侧为右树，
     public TreeNode sortedArrayToBST(int[] nums) {
+        int mid = nums.length / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        tree(root, nums, mid);
+        return root;
+    }
+
+    private void tree(TreeNode root, int[] nums, int i) {
+        root.left
 
     }
 
