@@ -15,22 +15,36 @@ public class MinTree {
 //
 //            0
 //            / \
-//            -3   9
-//            /   /
-//            -10  5
+//          -3   9
+//          /   /
+//        -10  5
 
     //1. 取中间的数字为根节点
     //2. 中间左侧为左树，右侧为右树，
     public TreeNode sortedArrayToBST(int[] nums) {
-        int mid = nums.length / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        tree(root, nums, mid);
-        return root;
+        if (nums.length<=0) {
+            return null;
+        }
+        return tree(nums, 0, nums.length-1);
     }
 
-    private void tree(TreeNode root, int[] nums, int i) {
-        root.left
+    // 主节点 + 左右子节点 为一组 进行递归
+    private TreeNode tree(int[] nums, int left, int right) {//0 4  // 0 1 // 1 1
+        if(left < 0 || right >= nums.length || left > right){
+            return null;
+        }
+        int avg = (right + left) / 2; // 2 // 0 // 1
+        TreeNode node = new TreeNode(nums[avg]);
+        node.left = tree(nums, left, avg-1); // 0 1 // 0 0 // 1 0 end
+        node.right = tree(nums, avg+1, right);// 3 5 // 1 1
+        return node;
+    }
 
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{-10,-3,0,5,9};
+        TreeNode n = new MinTree().sortedArrayToBST(nums);
+        int i = 12;
     }
 
     public class TreeNode {
