@@ -31,6 +31,12 @@ import java.util.List;
 // 3 7 8
 // 9 11 13
 // 16 15 17
+/**
+ * 唯一摩尔斯密码词
+ *
+ * @Author NM
+ * @Date 2021/3/19 19:21
+ */
 public class LuckyMumber {
 
 

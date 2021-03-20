@@ -1,6 +1,8 @@
 package com.nm.leetcode.simple;
 
 /**
+ *
+ * 最小高度二叉树
  * @Author NM
  * @Date 2021/3/18 13:00
  */
