@@ -27,4 +27,19 @@ public class TransMessage {
 //    输出：0
 //
 //    解释：信息不能从小 A 处经过 2 轮传递到编号 2
+
+
+    //动态规划四步
+    //1.确定状态
+        //1.1 最后一步  k步走到n-1处
+        //1.2 化成子问题  k-1步走到n-2 k-2走到n-3
+    //2.转移方程
+        //2.1 f(x) = min{}
+    //3.初始条件和边界
+    //4.计算顺序
+
+
+    public int numWays(int n, int[][] relation, int k) {
+        return 0;
+    }
 }
