@@ -25,25 +25,15 @@ public class MergeTwoLinkedList {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) { // 1124 34
         if(l1 == null){
             return l2;
-        }
-        if(l2 == null){
+        }else if(l2 == null){
             return l1;
+        }else if(l1.val <= l2.val){
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        }else{
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
         }
-        while (l2 != null){
-            int val1 = l1.val;
-            int nextval1 = l1.next.val;
-            int val2 = l2.val;
-            if(val1 <= val2 && val2 <= nextval1){
-                ListNode temp = l1.next;
-                ListNode temp2 = l2.next;
-                l1.next = l2;
-                l2.next = temp;
-                l2 = temp2;
-            }else{
-
-            }
-        }
-        return l1;
     }
 
 
@@ -51,7 +41,8 @@ public class MergeTwoLinkedList {
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1,new ListNode(2, new ListNode(4)));
         ListNode l2 = new ListNode(1,new ListNode(3, new ListNode(4)));
-        new MergeTwoLinkedList().mergeTwoLists(l1, l2);
+        ListNode r =  new MergeTwoLinkedList().mergeTwoLists(l1, l2);
+        System.out.println(11);
     }
 
     static class ListNode {
